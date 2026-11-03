@@ -18,7 +18,7 @@ gsettings get org.gnome.settings-daemon.plugins.power power-button-action
 
 ## Automatic installation
 
-From the repository root, open a terminal in your GNOME X11 or Wayland session and run:
+Use the install script for the complete setup. From the repository root, open a terminal in your GNOME X11 or Wayland session and run:
 
 ```bash
 ./install.sh
