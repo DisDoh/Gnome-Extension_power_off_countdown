@@ -1,0 +1,6 @@
+{
+  "uuid": "ubuntu-power-countdown@local",
+  "name": "Power Dialog Countdown",
+  "description": "Show the remaining seconds in Ubuntu's power dialogs and confirm shutdown with a second Power press.",
+  "shell-version": ["46"]
+}
