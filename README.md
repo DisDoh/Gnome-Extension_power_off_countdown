@@ -6,25 +6,16 @@ This extension shows the remaining time, second by second, in GNOME's shutdown d
 
 - Ubuntu 24.04, GNOME Shell 46, X11 or Wayland session.
 - The Power button must use XKB keycode `124`, which this extension uses. The check depends on the session type.
-- The Power button action must be set to `interactive`.
 
-To check your session and current setting:
+## Installation
 
-```bash
-echo "$XDG_SESSION_TYPE"
-gnome-shell --version
-gsettings get org.gnome.settings-daemon.plugins.power power-button-action
-```
-
-## Automatic installation
-
-Use the install script for the complete setup. From the repository root, open a terminal in your GNOME X11 or Wayland session and run:
+Use the install script for installation and configuration. From the repository root, open a terminal in your GNOME X11 or Wayland session and run:
 
 ```bash
 ./install.sh
 ```
 
-Do not use `sudo`. The script checks for Ubuntu 24.04 and GNOME Shell 46. On X11, it checks that keycode `124` maps to `XF86PowerOff`; on Wayland, it checks that GNOME's Power shortcut contains `XF86PowerOff`. It backs up any existing installation, copies the files into your user account, sets the Power button action to `interactive`, and adds the extension's UUID to the enabled extensions for the next session. If an essential step fails, it attempts to restore the previous version and settings. The backup path is displayed at the end.
+Do not use `sudo`. The script checks compatibility and the Power key mapping, backs up an existing installation, installs the extension, sets the Power button action to `interactive`, and enables the extension for the next session. If an essential step fails, it attempts to restore the previous version and settings. It displays the backup path when a backup is made.
 
 Log out and back in to GNOME to load and enable the new version. GNOME 46 does not discover an extension copied during the current session: the message “Extension does not exist” before you log back in is expected.
 
