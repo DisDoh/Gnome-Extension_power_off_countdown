@@ -35,7 +35,7 @@ esac
 [[ -n ${HOME:-} ]] || fail 'la variable HOME est absente.'
 [[ -f $source_dir/extension.js && -f $source_dir/metadata.json ]] || fail 'fichiers de l’extension introuvables.'
 
-# L’extension utilise des API de GNOME Shell 46 et le code XKB 124.
+# The extension uses GNOME Shell 46 APIs and XKB keycode 124.
 [[ -r /etc/os-release ]] || fail 'impossible de vérifier la version d’Ubuntu.'
 # shellcheck source=/dev/null
 source /etc/os-release

@@ -1,3 +1,3 @@
-# Extension GNOME : bouton Power
+# GNOME extension: Power button
 
-Le [README principal](../README.md) contient les prérequis et les étapes d’installation, de mise à jour et de désinstallation.
+The [main README](../README.md) covers the requirements and the steps to install, update, and uninstall the extension.

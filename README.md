@@ -1,14 +1,14 @@
-# Power Dialog Countdown pour GNOME
+# Power Dialog Countdown for GNOME
 
-Cette extension affiche le temps restant, seconde par seconde, dans la boîte de dialogue d’extinction de GNOME. Quand cette boîte est ouverte, un deuxième appui sur le bouton Power confirme l’extinction.
+This extension shows the remaining time, second by second, in GNOME's shutdown dialog. When the dialog is open, pressing the Power button a second time confirms shutdown.
 
-## Compatibilité
+## Compatibility
 
-- Ubuntu 24.04, GNOME Shell 46, session X11 ou Wayland.
-- Le bouton Power doit correspondre au code XKB `124`, utilisé par cette extension. La vérification diffère selon le type de session.
-- L’action du bouton Power doit être réglée sur `interactive`.
+- Ubuntu 24.04, GNOME Shell 46, X11 or Wayland session.
+- The Power button must use XKB keycode `124`, which this extension uses. The check depends on the session type.
+- The Power button action must be set to `interactive`.
 
-Pour vérifier la session et le réglage actuel :
+To check your session and current setting:
 
 ```bash
 echo "$XDG_SESSION_TYPE"
@@ -16,35 +16,35 @@ gnome-shell --version
 gsettings get org.gnome.settings-daemon.plugins.power power-button-action
 ```
 
-## Installation automatique
+## Automatic installation
 
-Depuis la racine du dépôt, ouvrez un terminal dans votre session GNOME X11 ou Wayland et exécutez :
+From the repository root, open a terminal in your GNOME X11 or Wayland session and run:
 
 ```bash
 ./install.sh
 ```
 
-N’utilisez pas `sudo`. Le script vérifie Ubuntu 24.04 et GNOME Shell 46. Sous X11, il vérifie que le code `124` correspond à `XF86PowerOff` ; sous Wayland, il vérifie que le raccourci Power de GNOME contient `XF86PowerOff`. Il sauvegarde une version déjà installée, copie les fichiers dans votre compte, règle l’action du bouton Power sur `interactive` et inscrit son UUID dans les extensions activées pour la prochaine session. Si une étape essentielle échoue, il tente de restaurer l’ancienne version et les réglages précédents. Le chemin de la sauvegarde est affiché à la fin.
+Do not use `sudo`. The script checks for Ubuntu 24.04 and GNOME Shell 46. On X11, it checks that keycode `124` maps to `XF86PowerOff`; on Wayland, it checks that GNOME's Power shortcut contains `XF86PowerOff`. It backs up any existing installation, copies the files into your user account, sets the Power button action to `interactive`, and adds the extension's UUID to the enabled extensions for the next session. If an essential step fails, it attempts to restore the previous version and settings. The backup path is displayed at the end.
 
-Déconnectez-vous puis reconnectez-vous à GNOME pour charger et activer la nouvelle version. GNOME 46 ne découvre pas une extension copiée pendant la session en cours : le message « Extension does not exist » avant reconnexion est attendu.
+Log out and back in to GNOME to load and enable the new version. GNOME 46 does not discover an extension copied during the current session: the message “Extension does not exist” before you log back in is expected.
 
-Pour vérifier l’état de l’extension :
+To check the extension's status:
 
 ```bash
 gnome-extensions info ubuntu-power-countdown@local
 ```
 
-Appuyez une fois sur Power pour ouvrir la boîte de dialogue d’extinction. Le compte à rebours doit s’afficher en secondes ; un deuxième appui confirme l’extinction. **Enregistrez votre travail avant cet essai.**
+Press Power once to open the shutdown dialog. The countdown should appear in seconds; a second press confirms shutdown. **Save your work before trying this.**
 
-## Mise à jour
+## Updating
 
-Après une modification de `extension.js`, relancez `./install.sh`, puis déconnectez-vous et reconnectez-vous pour charger la nouvelle version.
+After changing `extension.js`, run `./install.sh` again, then log out and back in to load the new version.
 
-## Désinstallation
+## Uninstalling
 
 ```bash
 gnome-extensions disable ubuntu-power-countdown@local
 rm -r ~/.local/share/gnome-shell/extensions/ubuntu-power-countdown@local
 ```
 
-Le réglage du bouton Power peut être modifié séparément avec `gsettings` si nécessaire.
+You can change the Power button setting separately with `gsettings` if needed.
